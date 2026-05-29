@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700&family=Pacifico&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-light: #f0f8ff;
+  --card-blue: #bde0fe;
+  --accent-blue: #a2d2ff;
+  --text-dark: #2b4c7e;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-dark);
+  font-family: 'Quicksand', 'Nunito', sans-serif;
+  user-select: none;
+  overscroll-behavior: none;
+}
+
+/* The phone frame is a container, so responsive type scales to the FRAME
+   width (cqw), not the full window — this is what stops big headings from
+   bleeding off the edges on desktop. */
+.story-frame {
+  container-type: inline-size;
+}
+
+@layer components {
+  /* Responsive, bubbly headline. clamp() bounds + cqw keeps it in the frame. */
+  .headline {
+    @apply font-display font-bold leading-[1.05];
+    font-size: clamp(2rem, 12cqw, 4rem);
+    letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .headline-sm {
+    @apply font-display font-bold leading-[1.08];
+    font-size: clamp(1.6rem, 8.5cqw, 2.75rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .eyebrow {
+    @apply font-script text-text-dark;
+    font-size: clamp(1.05rem, 5cqw, 1.6rem);
+  }
+
+  .body-copy {
+    @apply font-body font-semibold;
+    font-size: clamp(0.95rem, 4.4cqw, 1.2rem);
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .stat-number {
+    @apply font-display font-bold leading-none;
+    font-size: clamp(3.25rem, 26cqw, 7rem);
+    letter-spacing: -0.02em;
+  }
+
+  /* soft pill chip (replaces the harsh Dymo label) */
+  .chip {
+    @apply inline-block rounded-pill bg-card-blue px-4 py-1.5 font-body font-bold text-text-dark shadow-soft;
+    font-size: clamp(0.8rem, 3.4cqw, 1rem);
+  }
+
+  /* frosted glass card for legible text over full-bleed photos */
+  .glass {
+    background: rgba(240, 248, 255, 0.55);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    @apply rounded-cute shadow-glass;
+  }
+
+  /* polaroid photo frame */
+  .polaroid {
+    background: #ffffff;
+    padding: 12px 12px 44px 12px;
+    @apply rounded-soft shadow-polaroid;
+  }
+  .polaroid img {
+    @apply rounded-[12px];
+    display: block;
+  }
+}
+
+/* soft drifting pastel background for solid slides */
+.soft-bg {
+  background: linear-gradient(120deg, #f0f8ff, #bde0fe, #a2d2ff, #cdb4db, #f0f8ff);
+  background-size: 300% 300%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-wobble,
+  .animate-driftbg,
+  .animate-twinkle {
+    animation: none !important;
+  }
+}

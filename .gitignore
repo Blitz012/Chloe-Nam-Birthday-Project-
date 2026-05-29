@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Original source media + design inspiration (already cleaned into public/assets/).
+# Kept on disk but excluded from git to avoid ~800MB of duplicate/unneeded bloat.
+Chloe Nam Birthday Project - *board*/
+Chloe Name Birthday Project - *board*/
+Chloe Nam Birthday project - Songs/
+gradient-bold-graphics-instagram-stories-collection/
+instagram-sale-stories-collection/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
